@@ -273,6 +273,21 @@
   .bar .tk{flex:1;height:10px;background:rgba(255,255,255,.04);border-radius:99px;overflow:hidden;position:relative}
   .bar .fl{height:100%;background:linear-gradient(90deg,var(--mint-dim),var(--mint));border-radius:99px;width:0;transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
   .bar .vv{font-family:'Courier New',monospace;font-size:11px;color:var(--mint);font-weight:700;width:28px;text-align:right}
+  /* destaque WhatsApp */
+  #dash .wapp{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,var(--ink-2),var(--ink-3));border:1px solid rgba(58,143,116,.35);border-radius:16px;padding:13px 15px}
+  #dash .wapp .ic{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;background:rgba(58,143,116,.18)}
+  #dash .wapp .ic svg{width:24px;height:24px;color:var(--mint)}
+  #dash .wapp .v{font-family:var(--disp);font-size:32px;font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.5px}
+  #dash .wapp .lb{font-size:11.5px;color:var(--mint-soft);font-weight:600;margin-top:2px}
+  #dash .wapp .tag{margin-left:auto;font-size:10px;font-weight:800;color:var(--mint);background:rgba(58,143,116,.16);padding:6px 10px;border-radius:9px;letter-spacing:.4px}
+  /* KPIs estilo painel (com ícone) */
+  #dash .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  #dash .kc{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:12px 13px;display:flex;align-items:center;gap:11px}
+  #dash .kc .ic{width:36px;height:36px;border-radius:10px;flex:none;display:grid;place-items:center;background:rgba(200,169,106,.13);border:1px solid rgba(200,169,106,.25)}
+  #dash .kc .ic svg{width:18px;height:18px;color:var(--gold)}
+  #dash .kc .v{font-family:var(--disp);font-size:27px;font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.5px}
+  #dash .kc .lb{font-size:10.5px;color:var(--mint-soft);font-weight:600;margin-top:2px;line-height:1.1}
+  #dash .chart h3{margin-bottom:10px}
   #dash .caption{
     position:absolute;left:16px;right:16px;bottom:16px;
     background:rgba(6,35,31,.92);backdrop-filter:blur(8px);
@@ -390,12 +405,12 @@
       <div class="badge hr"><span class="pp">▶</span>ASSISTA AGORA</div>
 
       <h1 class="h hr">Atena<em>em ação</em></h1>
-      <p class="sub hr">Gestão inteligente que <b>agenda</b>, <b>confirma</b> e <b>fideliza</b> — direto no WhatsApp.</p>
+      <p class="sub hr">Gestão inteligente que <b>atende como gente</b>: agenda, confirma e fideliza — direto no WhatsApp.</p>
 
       <div class="feats">
         <div class="feat hr">
-          <span class="fic">⚡</span>
-          <div class="ft"><b>Atendimento 24h</b><span>responde e agenda sem recepção</span></div>
+          <span class="fic">💬</span>
+          <div class="ft"><b>Atendimento humanizado</b><span>conversa natural, 24h — parece gente</span></div>
         </div>
         <div class="feat hr">
           <span class="fic">✅</span>
@@ -527,10 +542,37 @@
       </div>
       <div class="body">
         <div><h2>Sua clínica em números</h2><div class="sub">Maio · em tempo real</div></div>
-        <div class="kpis">
-          <div class="kpi big"><div class="lb">Faturamento no mês</div><div class="v"><small>R$</small><span id="k3">0</span></div><div class="tr up">↑ 28% vs abril</div></div>
-          <div class="kpi"><div class="lb">Pacientes</div><div class="v" id="k1">0</div><div class="tr up">↑ 32%</div></div>
-          <div class="kpi"><div class="lb">No-show</div><div class="v" id="k4">0<small>%</small></div><div class="tr dn">↓ 38%</div></div>
+
+        <div class="wapp">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5C7 3.5 3 7 3 11.3c0 1.8.7 3.5 1.9 4.9L4 20.5l4.5-1.2c1.1.5 2.3.7 3.5.7 5 0 9-3.5 9-7.7S17 3.5 12 3.5z"/></svg></div>
+          <div><div class="v" id="dw">0</div><div class="lb">atendimentos no WhatsApp</div></div>
+          <div class="tag">100% IA</div>
+        </div>
+
+        <div class="kgrid">
+          <div class="kc">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></div>
+            <div><div class="v" id="dk1">0</div><div class="lb">Agendamentos</div></div>
+          </div>
+          <div class="kc">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.6 2.6L16 9.5"/></svg></div>
+            <div><div class="v" id="dk2">0</div><div class="lb">Comparecimentos</div></div>
+          </div>
+          <div class="kc">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.2"/><path d="M2.8 20c0-3.6 2.8-6.3 6.2-6.3s6.2 2.7 6.2 6.3"/><path d="M16.6 4.6a3.2 3.2 0 0 1 0 6"/><path d="M18 13.8c2.3.6 3.9 2.7 3.9 5.2"/></svg></div>
+            <div><div class="v" id="dk3">0</div><div class="lb">Novos leads</div></div>
+          </div>
+          <div class="kc">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7.5" r="3.2"/><path d="M3.5 20c0-3.6 2.9-6.5 6.5-6.5c.7 0 1.4.1 2 .3"/><path d="M18 13.5v5M15.5 16h5"/></svg></div>
+            <div><div class="v" id="dk4">0</div><div class="lb">Novos clientes</div></div>
+          </div>
+        </div>
+
+        <div class="chart">
+          <h3>Procedimentos mais vendidos <span class="pt">últ. 30 dias</span></h3>
+          <div class="bar"><div class="nm">Clareamento</div><div class="tk"><div class="fl" data-w="92"></div></div><div class="vv">18</div></div>
+          <div class="bar"><div class="nm">Ortodontia</div><div class="tk"><div class="fl" data-w="74"></div></div><div class="vv">14</div></div>
+          <div class="bar"><div class="nm">Limpeza</div><div class="tk"><div class="fl" data-w="56"></div></div><div class="vv">11</div></div>
         </div>
       </div>
       <div class="caption">
@@ -671,7 +713,7 @@ function reset(){
   document.querySelectorAll('.card.show, .punch.show, .slot.show, .caption.show, .big.show, .box.show, .msg.show, .risk.show').forEach(e=>e.classList.remove('show'));
   document.querySelectorAll('#hook .hr.in').forEach(e=>e.classList.remove('in'));
   document.querySelectorAll('.bar .fl').forEach(f=>f.style.width='0');
-  ['k1','k2','k3','k4'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent='0';});
+  ['dw','dk1','dk2','dk3','dk4'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent='0';});
   const bn=document.getElementById('bignum'); if(bn) bn.textContent='7';
   buildAgenda();
 }
@@ -727,10 +769,17 @@ function run(){
   // CENA 5 · DASHBOARD (38–48s)
   timers.push(setTimeout(()=>{
     show('dash');
-    timers.push(setTimeout(()=>animCount(document.getElementById('k3'),84200,1600,true),300));
-    timers.push(setTimeout(()=>animCount(document.getElementById('k1'),287,1400),600));
-    timers.push(setTimeout(()=>animCount(document.getElementById('k4'),9,1100),900));
-    timers.push(setTimeout(()=>document.querySelector('#dash .caption').classList.add('show'), 4500));
+    timers.push(setTimeout(()=>animCount(document.getElementById('dw'),1248,1500,true),300));
+    timers.push(setTimeout(()=>animCount(document.getElementById('dk1'),412,1200),550));
+    timers.push(setTimeout(()=>animCount(document.getElementById('dk2'),380,1200),700));
+    timers.push(setTimeout(()=>animCount(document.getElementById('dk3'),156,1200),850));
+    timers.push(setTimeout(()=>animCount(document.getElementById('dk4'),47,1200),1000));
+    timers.push(setTimeout(()=>{
+      document.querySelectorAll('#dash .bar .fl').forEach((f,i)=>{
+        timers.push(setTimeout(()=>{f.style.width=f.dataset.w+'%';}, i*180));
+      });
+    }, 1600));
+    timers.push(setTimeout(()=>document.querySelector('#dash .caption').classList.add('show'), 4800));
   }, 38000));
 
   // CENA 6 · HERO NOITE (48–56s)
