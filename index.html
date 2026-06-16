@@ -59,25 +59,84 @@
   .logo .wm{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:24px;color:var(--cream);letter-spacing:-.5px}
   .logo .wm b{color:var(--mint)}
 
-  /* ================ CENA 1 · HOOK ================ */
-  #hook .pad{position:absolute;inset:0;padding:44px 32px;display:flex;flex-direction:column}
+  /* ================ CENA 1 · HOOK (cover) ================ */
+  #hook{background:linear-gradient(165deg,#eafff6 0%,#d6f7e8 48%,#bff0da 100%)}
+  #hook .hbg{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 38% at 88% 8%, rgba(46,230,166,.35), transparent 60%),
+      radial-gradient(50% 30% at 6% 96%, rgba(26,164,120,.18), transparent 60%);
+  }
+  /* bolha decorativa 3D estilo referência */
+  #hook .hbubble{position:absolute;top:62px;right:-26px;width:150px;height:150px;opacity:.9;
+    filter:drop-shadow(0 24px 34px rgba(26,164,120,.35));animation:floaty 5s ease-in-out infinite}
+  #hook .hbubble svg{width:100%;height:100%;display:block}
+  @keyframes floaty{50%{transform:translateY(-12px)}}
+
+  #hook .pad{position:absolute;inset:0;padding:40px 34px;display:flex;flex-direction:column;z-index:2}
+  #hook .logo .wm{color:var(--ink)}
+  #hook .logo .wm b{color:var(--mint-dim)}
+
+  #hook .badge{
+    align-self:flex-start;margin-top:30px;display:inline-flex;align-items:center;gap:9px;
+    padding:9px 16px 9px 9px;border-radius:100px;background:var(--ink);color:var(--cream);
+    font-weight:800;font-size:12px;letter-spacing:1.6px;box-shadow:0 10px 24px rgba(6,35,31,.28);
+  }
+  #hook .badge .pp{width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--ink);
+    display:grid;place-items:center;font-size:11px}
+
   #hook .h{
-    font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:clamp(40px,7.5vh,64px);line-height:.95;
-    letter-spacing:-1.8px;color:var(--cream);margin-top:auto;
+    font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(56px,9vh,80px);line-height:.9;
+    letter-spacing:-2.5px;color:var(--ink);margin-top:18px;
   }
-  #hook .h em{font-style:italic;color:var(--mint)}
-  #hook .sub{color:var(--mint-soft);font-size:18px;margin-top:18px;font-weight:500;max-width:90%}
-  #hook .sub b{color:var(--cream)}
-  #hook .ti{
-    margin-bottom:auto;margin-top:34px;align-self:flex-start;
-    display:inline-flex;align-items:center;gap:7px;padding:8px 14px;
-    border:1px solid rgba(46,230,166,.5);border-radius:100px;color:var(--mint);
-    font-weight:700;font-size:12px;letter-spacing:1.4px;
+  #hook .h em{display:block;font-style:italic;color:var(--mint-dim)}
+  #hook .sub{color:#2f5249;font-size:17px;margin-top:16px;font-weight:500;max-width:94%;line-height:1.4}
+  #hook .sub b{color:var(--mint-dim);font-weight:800}
+
+  #hook .feats{margin-top:22px;display:flex;flex-direction:column;gap:13px}
+  #hook .feat{display:flex;align-items:center;gap:13px}
+  #hook .feat .fic{
+    width:40px;height:40px;border-radius:13px;flex:none;display:grid;place-items:center;font-size:18px;
+    background:rgba(255,255,255,.7);border:1px solid rgba(26,164,120,.25);box-shadow:0 6px 14px rgba(26,164,120,.14);
   }
-  #hook .ti .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint);animation:pulse 1.5s infinite}
+  #hook .feat .ft b{display:block;color:var(--ink);font-size:15px;font-weight:800;line-height:1.1}
+  #hook .feat .ft span{color:#4a6b62;font-size:12px}
+
+  /* celular mockup */
+  #hook .hphone{
+    position:absolute;right:-30px;bottom:-46px;width:236px;z-index:1;
+    transform:rotate(-5deg);
+    filter:drop-shadow(0 34px 50px rgba(6,35,31,.4));
+  }
+  #hook .hphone .frame{background:#06231f;border-radius:36px;padding:9px;border:1px solid rgba(255,255,255,.1)}
+  #hook .hphone .screen{background:#04140f;border-radius:28px;overflow:hidden;position:relative}
+  #hook .hphone .island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:64px;height:16px;background:#000;border-radius:99px;z-index:3}
+  #hook .hphone .pbar{display:flex;align-items:center;gap:8px;padding:30px 14px 12px;background:var(--ink-2);border-bottom:1px solid var(--line)}
+  #hook .hphone .pbar .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--mint-dim));display:grid;place-items:center}
+  #hook .hphone .pbar .av svg{width:17px;height:17px}
+  #hook .hphone .pbar .nm{font-family:Georgia,serif;font-weight:700;font-size:13px;color:var(--cream);line-height:1.1}
+  #hook .hphone .pbar .nm small{display:block;font-family:system-ui,sans-serif;font-weight:600;font-size:9px;color:var(--mint-soft);letter-spacing:.3px}
+  #hook .hphone .pchat{padding:13px 12px 16px;display:flex;flex-direction:column;gap:8px;min-height:188px}
+  #hook .hphone .pb{max-width:82%;padding:8px 11px;font-size:11px;line-height:1.32;border-radius:14px}
+  #hook .hphone .pb.in{align-self:flex-start;background:var(--ink-3);color:#cfe3dc;border-bottom-left-radius:4px}
+  #hook .hphone .pb.out{align-self:flex-end;background:linear-gradient(135deg,var(--mint-dim),var(--mint));color:#04140f;font-weight:600;border-bottom-right-radius:4px}
+  #hook .hphone .typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px;background:var(--ink-3);border-radius:14px;border-bottom-left-radius:4px}
+  #hook .hphone .typing i{width:6px;height:6px;border-radius:50%;background:var(--mint-soft);animation:typ 1.2s infinite}
+  #hook .hphone .typing i:nth-child(2){animation-delay:.2s}
+  #hook .hphone .typing i:nth-child(3){animation-delay:.4s}
+  @keyframes typ{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+
+  #hook .hfoot{position:absolute;left:34px;bottom:26px;z-index:2;display:flex;align-items:center;gap:9px}
+  #hook .hfoot .fl{font-family:Georgia,serif;font-weight:700;font-size:16px;color:var(--ink);letter-spacing:-.4px}
+  #hook .hfoot .fl b{color:var(--mint-dim)}
+  #hook .hfoot .fs{color:#4a6b62;font-size:10.5px;font-weight:600;border-left:1px solid rgba(6,35,31,.18);padding-left:9px}
+
+  /* reveal */
+  #hook .hr{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.3,1)}
+  #hook .hr.in{opacity:1;transform:none}
+  #hook .hphone.hr{transform:translateY(40px) rotate(-5deg)}
+  #hook .hphone.hr.in{transform:rotate(-5deg)}
   @keyframes pulse{50%{opacity:.4}}
-  #hook .arr{position:absolute;left:50%;bottom:32px;color:var(--mint);font-size:28px;animation:bob 1.6s infinite}
-  @keyframes bob{50%{transform:translateY(8px)}}
 
   /* ================ CENA 2 · PROBLEMA ================ */
   #prob{display:flex;flex-direction:column;justify-content:center;padding:26px 32px}
@@ -289,13 +348,62 @@
 
 <div class="stage" id="stage">
 
-  <!-- ==================== HOOK ==================== -->
+  <!-- ==================== HOOK (cover) ==================== -->
   <section class="scene on" id="hook">
-    <div class="bg"></div><div class="grain"></div>
+    <div class="hbg"></div>
+    <div class="hbubble">
+      <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C13 4 4 11.6 4 21c0 5.3 2.9 10 7.5 13.1-.4 3-1.7 5.6-3.4 7.5-.5.6-.1 1.5.7 1.4 4.3-.5 7.8-2 10.3-3.9 1.6.3 3.2.5 4.9.5 11 0 20-7.6 20-17S35 4 24 4Z" fill="#fff"/><circle cx="17" cy="21" r="2.4" fill="var(--mint-dim)"/><circle cx="24" cy="21" r="2.4" fill="var(--mint-dim)"/><circle cx="31" cy="21" r="2.4" fill="var(--mint-dim)"/></svg>
+    </div>
+
     <div class="pad">
-      <h1 class="h">Sua clínica<br>nunca para.<br>Sua <em>gestão</em><br>sim.</h1>
-      <p class="sub">Agenda, WhatsApp, CRM, dashboard — <b>tudo dorme quando você dorme.</b></p>
-      <div class="arr">↓</div>
+      <div class="logo hr">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C13 4 4 11.6 4 21c0 5.3 2.9 10 7.5 13.1-.4 3-1.7 5.6-3.4 7.5-.5.6-.1 1.5.7 1.4 4.3-.5 7.8-2 10.3-3.9 1.6.3 3.2.5 4.9.5 11 0 20-7.6 20-17S35 4 24 4Z" fill="var(--mint-dim)"/></svg>
+        <div class="wm">aten<b>a</b></div>
+      </div>
+
+      <div class="badge hr"><span class="pp">▶</span>ASSISTA AGORA</div>
+
+      <h1 class="h hr">Atena<em>em ação</em></h1>
+      <p class="sub hr">Gestão inteligente que <b>agenda</b>, <b>confirma</b> e <b>fideliza</b> — direto no WhatsApp.</p>
+
+      <div class="feats">
+        <div class="feat hr">
+          <span class="fic">⚡</span>
+          <div class="ft"><b>Atendimento 24h</b><span>responde e agenda sem recepção</span></div>
+        </div>
+        <div class="feat hr">
+          <span class="fic">✅</span>
+          <div class="ft"><b>Menos faltas</b><span>prevê e confirma o no-show</span></div>
+        </div>
+        <div class="feat hr">
+          <span class="fic">📊</span>
+          <div class="ft"><b>Tudo num lugar</b><span>agenda, CRM e dashboard</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hphone hr">
+      <div class="frame">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="pbar">
+            <div class="av"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4C13 4 4 11.6 4 21c0 5.3 2.9 10 7.5 13.1-.4 3-1.7 5.6-3.4 7.5-.5.6-.1 1.5.7 1.4 4.3-.5 7.8-2 10.3-3.9 1.6.3 3.2.5 4.9.5 11 0 20-7.6 20-17S35 4 24 4Z" fill="#04140f"/></svg></div>
+            <div class="nm">Atena<small>Assistente · online</small></div>
+          </div>
+          <div class="pchat">
+            <div class="pb out">Oi! Gostaria de marcar uma avaliação 🦷</div>
+            <div class="pb in">Claro! 😊 Tenho amanhã 14h ou quinta 10h. Qual fica melhor pra você?</div>
+            <div class="pb out">Amanhã 14h 👌</div>
+            <div class="pb in">Agendado ✅ Vou te lembrar um dia antes!</div>
+            <div class="typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hfoot">
+      <div class="fl">aten<b>a</b></div>
+      <div class="fs">Gestão inteligente para clínicas</div>
     </div>
   </section>
 
@@ -545,6 +653,7 @@ function show(id){ document.querySelectorAll('.scene').forEach(s=>s.classList.re
 function reset(){
   clr();
   document.querySelectorAll('.card.show, .punch.show, .slot.show, .caption.show, .big.show, .box.show, .msg.show, .risk.show').forEach(e=>e.classList.remove('show'));
+  document.querySelectorAll('#hook .hr.in').forEach(e=>e.classList.remove('in'));
   document.querySelectorAll('.bar .fl').forEach(f=>f.style.width='0');
   ['k1','k2','k3','k4'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent='0';});
   const bn=document.getElementById('bignum'); if(bn) bn.textContent='7';
@@ -565,28 +674,31 @@ function makeStars(){
 function run(){
   reset(); makeStars();
 
-  // CENA 1 · HOOK (0–3.5s)
+  // CENA 1 · HOOK (0–5s) — cover com revelação escalonada
   show('hook');
+  document.querySelectorAll('#hook .hr').forEach((e,i)=>{
+    timers.push(setTimeout(()=>e.classList.add('in'), 150+i*180));
+  });
 
-  // CENA 2 · PROBLEMA (3.5–19.5s) — 16s; cards entram mais rápido e ficam mais tempo na tela
+  // CENA 2 · PROBLEMA (5–21s) — 16s; cards entram mais rápido e ficam mais tempo na tela
   timers.push(setTimeout(()=>{
     show('prob');
     document.querySelectorAll('#prob .card').forEach((c,i)=>{
       timers.push(setTimeout(()=>c.classList.add('show'), 400+i*1800));
     });
     timers.push(setTimeout(()=>document.querySelector('#prob .punch').classList.add('show'), 6000));
-  }, 3500));
+  }, 5000));
 
-  // CENA 3 · AGENDA (14.5–21.5s)
+  // CENA 3 · AGENDA (16–23s)
   timers.push(setTimeout(()=>{
     show('agenda');
     document.querySelectorAll('#agenda .slot').forEach((s,i)=>{
       timers.push(setTimeout(()=>s.classList.add('show'), 350+i*230));
     });
     timers.push(setTimeout(()=>document.querySelector('#agenda .caption').classList.add('show'), 3800));
-  }, 12500));
+  }, 14000));
 
-  // CENA 4 · NO-SHOW (21.5–29.5s) — Atena prevê risco e confirma antes
+  // CENA 4 · NO-SHOW (23–31s) — Atena prevê risco e confirma antes
   timers.push(setTimeout(()=>{
     show('noshow');
     timers.push(setTimeout(()=>document.querySelector('#noshow .risk').classList.add('show'), 400));
@@ -594,9 +706,9 @@ function run(){
       timers.push(setTimeout(()=>m.classList.add('show'), 1300+i*1500));
     });
     timers.push(setTimeout(()=>document.querySelector('#noshow .caption').classList.add('show'), 6200));
-  }, 21500));
+  }, 23000));
 
-  // CENA 5 · DASHBOARD (29.5–36.5s)
+  // CENA 5 · DASHBOARD (31–38s)
   timers.push(setTimeout(()=>{
     show('dash');
     timers.push(setTimeout(()=>animCount(document.getElementById('k1'),287,1400),300));
@@ -609,25 +721,25 @@ function run(){
       });
     }, 1600));
     timers.push(setTimeout(()=>document.querySelector('#dash .caption').classList.add('show'), 4500));
-  }, 29500));
+  }, 31000));
 
-  // CENA 6 · HERO NOITE (36.5–42.5s)
+  // CENA 6 · HERO NOITE (38–44s)
   timers.push(setTimeout(()=>{
     show('night');
     timers.push(setTimeout(()=>document.getElementById('bignum').classList.add('show'), 1100));
-  }, 36500));
+  }, 38000));
 
-  // CENA 7 · CONTRASTE (42.5–50.5s)
-  timers.push(setTimeout(()=> show('vs'), 42500));
+  // CENA 7 · CONTRASTE (44–52s)
+  timers.push(setTimeout(()=> show('vs'), 44000));
 
-  // CENA 8 · CTA (50.5–56.5s)
+  // CENA 8 · CTA (52–58s)
   timers.push(setTimeout(()=>{
     show('cta');
     timers.push(setTimeout(()=>document.getElementById('ctabox').classList.add('show'),600));
-  }, 50500));
+  }, 52000));
 
   // LOOP · reinicia do início após a CTA (~6s na tela)
-  timers.push(setTimeout(run, 56500));
+  timers.push(setTimeout(run, 58000));
 }
 
 document.getElementById('play').addEventListener('click', run);
