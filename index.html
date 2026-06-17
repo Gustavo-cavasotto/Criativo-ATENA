@@ -147,29 +147,51 @@
   #hook .hphone.hr.in{transform:rotate(-5deg)}
   @keyframes pulse{50%{opacity:.4}}
 
-  /* ================ CENA 2 · PROBLEMA (marfim) ================ */
-  #prob{display:flex;flex-direction:column;justify-content:center;padding:30px 32px;
-    background:linear-gradient(165deg,var(--ivory) 0%,var(--ivory-2) 100%)}
-  #prob .bg,#prob .grain{display:none}
-  #prob .kicker,#prob .stack,#prob .punch{position:relative;z-index:1}
-  #prob .kicker{color:var(--mint-dim);font-weight:800;letter-spacing:1.6px;font-size:13px;margin-bottom:16px;text-align:center}
-  .card{
-    background:#fff;
-    border:1px solid var(--line-dark);border-radius:18px;padding:16px 20px;
-    opacity:0;transform:translateX(-30px);transition:opacity .55s ease,transform .55s ease;
-    box-shadow:0 14px 32px rgba(22,70,58,.08);
+  /* ================ CENA 2 · PROBLEMA (WhatsApp lotado) ================ */
+  #prob .chatbar{
+    display:flex;align-items:center;gap:11px;padding:42px 18px 14px;
+    background:var(--ink-2);border-bottom:1px solid var(--line);
   }
-  #prob .stack{display:flex;flex-direction:column;gap:12px}
-  .card.show{opacity:1;transform:none}
-  .card .n{font-family:var(--mono);font-size:12px;color:var(--gold);font-weight:700;letter-spacing:1.5px}
-  .card .q{font-family:var(--disp);font-size:25px;font-weight:600;color:var(--ink);line-height:1.1;margin-top:3px;letter-spacing:-.2px}
-  .card .a{color:var(--ink-mute);font-size:12.5px;margin-top:8px;font-style:italic;line-height:1.3}
-  #prob .punch{
-    margin-top:20px;text-align:center;font-family:var(--disp);
-    font-size:24px;font-weight:600;color:var(--mint-dim);font-style:italic;letter-spacing:-.2px;line-height:1.2;
-    opacity:0;transition:opacity .6s ease .2s;
+  #prob .chatbar .wa{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(58,143,116,.18)}
+  #prob .chatbar .wa svg{width:21px;height:21px;color:var(--mint)}
+  #prob .chatbar .tt{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--cream);letter-spacing:-.3px}
+  #prob .chatbar .unread{
+    margin-left:auto;display:inline-flex;align-items:center;gap:7px;
+    padding:6px 12px;border-radius:100px;
+    background:rgba(255,107,107,.14);border:1px solid rgba(255,107,107,.45);
+    color:var(--danger);font-size:11.5px;font-weight:800;letter-spacing:.3px;
   }
-  #prob .punch.show{opacity:1}
+  #prob .chatbar .unread .dot{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 9px var(--danger);animation:pulse 1.3s infinite}
+  #prob .inbox{flex:1;padding:4px 0;overflow:hidden}
+  #prob .row{
+    display:flex;align-items:center;gap:12px;padding:13px 18px;
+    border-bottom:1px solid var(--line);
+    opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;
+  }
+  #prob .row.show{opacity:1;transform:none}
+  #prob .row .av{
+    width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-family:var(--disp);font-weight:700;font-size:18px;color:var(--cream);
+    background:linear-gradient(135deg,var(--ink-3),var(--mint-dim));
+  }
+  #prob .row .mid{flex:1;min-width:0}
+  #prob .row .nm{font-weight:700;font-size:14px;color:var(--cream);letter-spacing:-.2px}
+  #prob .row .msg{font-size:12.5px;color:#9bb5ad;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:185px}
+  #prob .row .meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none}
+  #prob .row .tm{font-size:10.5px;color:#7a948c;font-weight:600}
+  #prob .row.late .tm{color:var(--coral)}
+  #prob .row .badge{min-width:20px;height:20px;padding:0 6px;border-radius:100px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#0c2b23;background:var(--mint)}
+  #prob .caption{
+    position:absolute;left:18px;right:18px;bottom:18px;
+    background:rgba(6,35,31,.92);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,107,107,.35);border-radius:14px;padding:14px 18px;
+    display:flex;align-items:center;gap:12px;
+    opacity:0;transition:opacity .5s ease;
+  }
+  #prob .caption.show{opacity:1}
+  #prob .caption .ic{font-size:22px}
+  #prob .caption .t{font-size:13px;font-weight:600;color:var(--cream);line-height:1.3}
+  #prob .caption .t b{color:var(--danger)}
 
   /* ================ CENA 3 · AGENDA ================ */
   .app{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--ink)}
@@ -448,28 +470,46 @@
     </div>
   </section>
 
-  <!-- ==================== PROBLEMA ==================== -->
+  <!-- ==================== PROBLEMA · WhatsApp lotado ==================== -->
   <section class="scene" id="prob">
-    <div class="bg"></div><div class="grain"></div>
-    <div class="kicker">ENTENDENDO SEU NEGÓCIO 👇</div>
-    <div class="stack">
-      <div class="card" data-i="0">
-        <div class="n">01</div>
-        <div class="q">Quanto dinheiro escapou da sua clínica esse mês em faltas e cancelamentos sem aviso?</div>
-        <div class="a">Se você não sabe o número… ele é maior do que imagina.</div>
+    <div class="app">
+      <div class="chatbar">
+        <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5C7 3.5 3 7 3 11.3c0 1.8.7 3.5 1.9 4.9L4 20.5l4.5-1.2c1.1.5 2.3.7 3.5.7 5 0 9-3.5 9-7.7S17 3.5 12 3.5z"/></svg></div>
+        <div class="tt">WhatsApp</div>
+        <div class="unread"><span class="dot"></span><span id="unread">0</span> não lidas</div>
       </div>
-      <div class="card" data-i="1">
-        <div class="n">02</div>
-        <div class="q">Quando sua agenda lota, quantos pacientes somem no WhatsApp sem ninguém responder?</div>
-        <div class="a">Cada mensagem ignorada virou cliente da concorrência.</div>
+      <div class="inbox">
+        <div class="row">
+          <div class="av">M</div>
+          <div class="mid"><div class="nm">Marina S.</div><div class="msg">Oi, vocês estão atendendo hoje?</div></div>
+          <div class="meta"><div class="tm">agora</div><div class="badge">2</div></div>
+        </div>
+        <div class="row">
+          <div class="av">L</div>
+          <div class="mid"><div class="nm">Lucas P.</div><div class="msg">Qual o valor da avaliação?</div></div>
+          <div class="meta"><div class="tm">4 min</div><div class="badge">1</div></div>
+        </div>
+        <div class="row">
+          <div class="av">J</div>
+          <div class="mid"><div class="nm">Júlia R.</div><div class="msg">Dá pra marcar essa semana?</div></div>
+          <div class="meta"><div class="tm">11 min</div><div class="badge">3</div></div>
+        </div>
+        <div class="row late">
+          <div class="av">P</div>
+          <div class="mid"><div class="nm">Pedro A.</div><div class="msg">Alô? Tem alguém aí?</div></div>
+          <div class="meta"><div class="tm">23 min</div><div class="badge">1</div></div>
+        </div>
+        <div class="row late">
+          <div class="av">A</div>
+          <div class="mid"><div class="nm">Ana C.</div><div class="msg">Deixa, já marquei em outra 😕</div></div>
+          <div class="meta"><div class="tm">38 min</div><div class="badge">2</div></div>
+        </div>
       </div>
-      <div class="card" data-i="2">
-        <div class="n">03</div>
-        <div class="q">Quantos pacientes fizeram um procedimento e nunca mais voltaram?</div>
-        <div class="a">E você não tem nada pra trazer eles de volta.</div>
+      <div class="caption">
+        <div class="ic">🔴</div>
+        <div class="t"><b>9 chamaram hoje · 0 respondidos.</b> Cada mensagem ignorada vira paciente da concorrência.</div>
       </div>
     </div>
-    <div class="punch">Travou em alguma? Esse é o dinheiro que sangra todo mês.</div>
   </section>
 
   <!-- ==================== AGENDA ==================== -->
@@ -710,8 +750,9 @@ function clr(){ timers.forEach(clearTimeout); timers=[]; }
 function show(id){ document.querySelectorAll('.scene').forEach(s=>s.classList.remove('on')); document.getElementById(id).classList.add('on'); }
 function reset(){
   clr();
-  document.querySelectorAll('.card.show, .punch.show, .slot.show, .caption.show, .big.show, .box.show, .msg.show, .risk.show').forEach(e=>e.classList.remove('show'));
+  document.querySelectorAll('.row.show, .slot.show, .caption.show, .big.show, .box.show, .msg.show, .risk.show').forEach(e=>e.classList.remove('show'));
   document.querySelectorAll('#hook .hr.in').forEach(e=>e.classList.remove('in'));
+  const u=document.getElementById('unread'); if(u) u.textContent='0';
   document.querySelectorAll('.bar .fl').forEach(f=>f.style.width='0');
   ['dw','dk1','dk2','dk3','dk4'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent='0';});
   const bn=document.getElementById('bignum'); if(bn) bn.textContent='7';
@@ -738,13 +779,14 @@ function run(){
     timers.push(setTimeout(()=>e.classList.add('in'), 150+i*180));
   });
 
-  // CENA 2 · PROBLEMA (6–17s)
+  // CENA 2 · PROBLEMA · WhatsApp lotado (6–17s)
   timers.push(setTimeout(()=>{
     show('prob');
-    document.querySelectorAll('#prob .card').forEach((c,i)=>{
-      timers.push(setTimeout(()=>c.classList.add('show'), 400+i*1800));
+    document.querySelectorAll('#prob .row').forEach((r,i)=>{
+      timers.push(setTimeout(()=>r.classList.add('show'), 300+i*650));
     });
-    timers.push(setTimeout(()=>document.querySelector('#prob .punch').classList.add('show'), 6000));
+    timers.push(setTimeout(()=>animCount(document.getElementById('unread'),9,2600),400));
+    timers.push(setTimeout(()=>document.querySelector('#prob .caption').classList.add('show'), 5200));
   }, 6000));
 
   // CENA 3 · AGENDA (17–28s)
